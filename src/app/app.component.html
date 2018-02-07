@@ -1,20 +1,129 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    项目进度管理
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="> -->
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!-- <h2>Here are some links to help you start: </h2> -->
+<article class='container-fluid'>
 
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>test</th>
+        <th>任务类型</th>
+        <th>风险</th>
+        <th>任务名称</th>
+        <th>开发人员</th>
+        <th>分类</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>完成度</th>
+        <th>状态</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>
+          <!-- <i class="material-icons">face</i> -->
+          <input type="checkbox">
+      </td>
+      <td>
+        <div ngbDropdown class='d-inline-block'>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>普通</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">普通</button>
+            <button class="dropdown-item">紧急</button>
+            <button class="dropdown-item">组内</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div ngbDropdown class='d-inline-block'>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>普通</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">低</button>
+            <button class="dropdown-item">中</button>
+            <button class="dropdown-item">高 <i class="fa fa-camera-retro"></i> fa-camera-retro</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class='input-group'>
+          <input type="text" class="form-control" placeholder="请填写任务名称" aria-label="请填写任务名称" aria-describedby="basic-addon2">
+          <div class='input-group-append'>
+            <button class='btn'>add</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class='input-group'>
+          <input type="text" class="form-control" placeholder="请填写开发人员" aria-label="请填写开发人员" aria-describedby="basic-addon2">
+          <div class='input-group-append'>
+            <button class='btn'>add</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div ngbDropdown class='d-inline-block'>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>直播</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">直播</button>
+            <button class="dropdown-item">点播</button>
+            <button class="dropdown-item">hybrid</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <form class="">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                      name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <img src="assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </td>
+      <td>
+        <form class="">
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                      name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+              <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                    <img src="assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                  </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </td>
+      <td>
+        <p><ngb-progressbar showValue="true" type="success" [value]="25"></ngb-progressbar></p>
+      </td>
+      <td>
+        <div ngbDropdown class='d-inline-block'>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>开发</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">开发</button>
+            <button class="dropdown-item">联调</button>
+            <button class="dropdown-item">测试</button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <form action="" class='form-inline'>
+          <input type="text" class='form-control'>
+        </form>
+      </td>
+    </tr>
+  </table>
+  <button mat-fab class='fas'><i class=' material-icons'>add</i></button>
+</article>
