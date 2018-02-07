@@ -35,3 +35,10 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
 }
+
+.mat-form-field-infix{
+    border-top: none;
+}
+.mat-form-field-label-wrapper{
+    padding-top: 0;
+}

@@ -1,0 +1,131 @@
+<article class='container-fluid'>
+    <table class='table table-striped'>
+        <thead>
+        <tr>
+            <th> </th>
+            <th>任务类型</th>
+            <th>任务名称</th>
+            <th>开发人员</th>
+            <th>分类</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th style='min-width: 10rem;'>完成度</th>
+            <th>状态</th>
+            <th>备注</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let task of taskes; let i = index'>
+            <!-- 是否完成 -->
+            <td><mat-checkbox (change)='finish($event, i)'></mat-checkbox></td>
+            <!-- 任务类型 -->
+            <td>
+                <div ngbDropdown class='d-inline-block'>
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{task.taskType}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                    <div  *ngFor='let taskType of base.taskType'>
+                    <button (click)='changeTaskType(taskType, i)' class="dropdown-item">{{taskType}}</button>
+                    </div>
+                </div>
+                </div>
+            </td>
+            <!-- 任务名称 -->
+            <td>
+                <div class='input-group'>
+                <input type="text" [(ngModel)]='task.name' class="form-control" placeholder="请填写任务名称" aria-label="请填写任务名称" aria-describedby="basic-addon2">
+                <div class='input-group-append'>
+                    <button class='btn'>add</button>
+                </div>
+                </div>
+            </td>
+            <!-- 开发人员 -->
+            <td>
+                <div class="input-group">
+                <input type="text" class="todeveloper form-control" readonly (click)='toDeveloper(task.developer)' [(ngModel)]='task.developer' aria-label="Text input with dropdown button">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">名字</button>
+                    <div class="dropdown-menu" *ngFor='let developer of base.developers'>
+                    <div  *ngFor='let developer of base.developers'>
+                        <a (click)='changeDeveloper(developer, i)' class="dropdown-item" href="#">{{developer}}</a>
+                    </div>
+                    <!-- <div role="separator" class="dropdown-divider"></div> -->
+                    <!-- <a class="dropdown-item" href="#">Separated link</a> -->
+                    </div>
+                </div>
+                </div>
+            </td>
+            <!-- 分类 -->
+            <td>
+                <div ngbDropdown class='d-inline-block'>
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{task.category}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div *ngFor='let category of base.categorys'>
+                    <button (click)='changeCategory(category, i)' class="dropdown-item">{{category}}</button>
+                    </div>
+                </div>
+                </div>
+            </td>
+            <!-- 开始时间 -->
+            <td>
+                <form class="">
+                <div class="">
+                    <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                            name="dp" [(ngModel)]="task.start" ngbDatepicker #d1="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+                            <img src="assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </form>
+            </td>
+            <!-- 结束时间 -->
+            <td>
+                <form class="">
+                <div class="">
+                    <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                            name="dp" [(ngModel)]="task.end" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <img src="assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </form>
+            </td>
+            <!-- 完成度 -->
+            <td>
+                <p style='margin: 0;'><ngb-progressbar showValue="true" type="{{task.status === '暂停' ? 'warning': 'success'}}" [value]="task.progress"></ngb-progressbar></p>
+                <mat-form-field class="example-full-width">
+                    <!-- <input matInput placeholder="Favorite food" value="Sushi"> -->
+                <input matInput type='number' [(ngModel)]='task.progress'/>
+                </mat-form-field>
+            </td>
+            <!-- 状态 -->
+            <td>
+                <div ngbDropdown class='d-inline-block'>
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{task.status}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <div *ngFor='let statu of base.status'>
+                    <button (click)='changeStatu(statu, i)' class="dropdown-item">{{statu}}</button>
+                    </div>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <button (click)='changeStatu("暂停", i)' class="dropdown-item">暂停</button>
+                </div>
+                </div>
+            </td>
+            <td>
+                <form action="" class='form-inline'>
+                <input type="text" class='form-control'>
+                </form>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)='addTask()' mat-fab class='fas'><i class=' material-icons'>add</i></button>
+</article>
